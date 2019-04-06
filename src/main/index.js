@@ -42,7 +42,8 @@ const createWindow = () => {
     autoHideMenuBar: true,
     darkTheme: true,
     show: false,
-    backgroundColor: '#181818'
+    backgroundColor: '#181818',
+    frame: false
   })
 
   mainWindow.once('ready-to-show', () => mainWindow.show())

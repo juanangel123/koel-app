@@ -118,6 +118,7 @@
     "pusher-js": "^4.4.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.18.2",
+    "typescript": "^3.4.2",
     "url-loader": "^0.5.9",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.7.3",
