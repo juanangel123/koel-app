@@ -56,6 +56,37 @@ const createWindow = () => {
 
   mainWindow.loadURL(winURL)
 
+  // This is done this way because I don't want to change the renderer folder
+  mainWindow.webContents.on('dom-ready', () => {
+    mainWindow.webContents.executeJavaScript(`
+      const {remote} = require('electron')
+      const ElectronTitlebarWindows = require('electron-titlebar-windows')
+      const titleBar = new ElectronTitlebarWindows({
+        backgroundColor: '#181818',
+        draggable: true,
+      })
+      titleBar.on('minimize', function(e) {
+        remote.getCurrentWindow().minimize();
+      });
+      titleBar.on('maximize', function(e) {
+        let win = remote.getCurrentWindow();
+        win.isMaximized() ? win.unmaximize() : win.maximize();
+      });
+      titleBar.on('fullscreen', function(e) {
+        let win = remote.getCurrentWindow();
+        win.isMaximized() ? win.unmaximize() : win.maximize();
+      });
+      titleBar.on('close', function(e) {
+          remote.getCurrentWindow().close();
+      });
+      
+      // Put the title bar in the correct position
+      titleBar.appendTo(document.body)
+      var titleBarElem = document.getElementsByClassName('titlebar')[0]
+      document.body.insertBefore(titleBarElem, document.body.childNodes[0])
+  `)
+  })
+
   mainWindow.on('closed', () => {
     mainWindow = null
   })

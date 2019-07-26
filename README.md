@@ -19,4 +19,8 @@ The project got its boilerplate from [electron-vue](https://github.com/Simulated
 
 ## Notes
 
-* Only tested on macOS High Siera so far, since that's the only OS I have.
+* Only tested on macOS High Sierra so far, since that's the only OS I have.
+
+## Fork
+
+Features added from this project are only tested in Windows 10 since it's mainly the OS that I use.
