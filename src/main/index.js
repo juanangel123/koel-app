@@ -85,6 +85,11 @@ const createWindow = () => {
       var titleBarElem = document.getElementsByClassName('titlebar')[0]
       document.body.insertBefore(titleBarElem, document.body.childNodes[0])
   `)
+    mainWindow.webContents.insertCSS(`
+      #main, .login-wrapper {
+        height: calc(100vh - 32px) !important;
+      }
+    `)
   })
 
   mainWindow.on('closed', () => {
