@@ -2,6 +2,7 @@
 
 import { app, BrowserWindow, globalShortcut } from 'electron'
 import windowStateKeeper from 'electron-window-state'
+import path from 'path'
 import createMenu from './createMenu'
 import registerGlobalShortcuts from './registerGlobalShortcuts'
 import listenToEvents from './listenToEvents'
@@ -43,7 +44,8 @@ const createWindow = () => {
     darkTheme: true,
     show: false,
     backgroundColor: '#181818',
-    frame: false
+    frame: false,
+    icon: path.join(__dirname, '/src/renderer/img/logo.png')
   })
 
   mainWindow.once('ready-to-show', () => mainWindow.show())
