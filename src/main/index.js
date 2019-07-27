@@ -49,6 +49,8 @@ const createWindow = () => {
     frame: false
   })
 
+  app.setAppUserModelId('Koel')
+
   // const test = nativeImage.createFromPath("/test.png")
   // //imgs/bars--img.gif
   // console.log(test.isEmpty())
